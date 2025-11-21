@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Project /// Protocol</title>
+    <style>
+        /* --- RETRO STYLING --- */
+        :root {
+            --bg-color: #050505;
+            --text-color: #00ff41; /* Classic Terminal Green */
+            --dim-color: #008f11;
+            --cursor-color: #00ff41;
+            --font-stack: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-stack);
+            margin: 0;
+            padding: 2rem;
+            line-height: 1.5;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        /* CRT Scanline Effect Overlay */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(
+                rgba(18, 16, 16, 0) 50%,
+                rgba(0, 0, 0, 0.25) 50%
+            ), linear-gradient(
+                90deg,
+                rgba(255, 0, 0, 0.06),
+                rgba(0, 255, 0, 0.02),
+                rgba(0, 0, 255, 0.06)
+            );
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            border: 2px solid var(--dim-color);
+            padding: 2rem;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
+            position: relative;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3 {
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-top: 2rem;
+            border-bottom: 1px dashed var(--dim-color);
+            padding-bottom: 0.5rem;
+        }
+
+        h1 { 
+            margin-top: 0; 
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--text-color);
+        }
+
+        a {
+            color: var(--text-color);
+            text-decoration: none;
+            border: 1px solid var(--text-color);
+            padding: 2px 6px;
+            transition: all 0.2s;
+        }
+
+        a:hover {
+            background-color: var(--text-color);
+            color: var(--bg-color);
+            cursor: pointer;
+        }
+
+        /* --- CODE BLOCKS --- */
+        pre {
+            background-color: #0f0f0f;
+            border: 1px solid var(--dim-color);
+            padding: 1rem;
+            overflow-x: auto;
+            font-size: 0.9rem;
+        }
+
+        ul {
+            list-style-type: square;
+        }
+
+        /* --- ANIMATIONS --- */
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 1.2rem;
+            background-color: var(--cursor-color);
+            animation: blink 1s step-end infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .status-bar {
+            margin-top: 3rem;
+            font-size: 0.8rem;
+            color: var(--dim-color);
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid var(--dim-color);
+            padding-top: 0.5rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>> AI_TCP_Game_Room <span class="cursor"></span></h1>
+            <p>A TCP/IP multiplayer interactive gameroom powered by AI.</p>
+        </header>
+
+        <main>
+            <section>
+                <h2>01. Overview</h2>
+                <p>
+                    This project holds 3 multiplayer games including The Matrix, Prison Break, and Treasure Hunt.
+                </p>
+            </section>
+
+            <section>
+                <h2>02. Features</h2>
+                <ul>
+                    <li><strong>Adaptive Gameplay:</strong> With the AI narration, every game you play will be different.</li>
+                    <li><strong>TCP/IP:</strong> With the use of our TCP/IP connection we can ensure strong and reliable communication</li>
+                    <li><strong>Terminal Design:</strong> This game is run through the terminal with engaging graphics to make the gameplay experience better</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>03. Architecture</h2>
+                <pre>
+[Diagram TBD]
+                </pre>
+            </section>
+
+            <section>
+                <h2>04. Usage</h2>
+                <p>Clone the repository and compile the source:</p>
+                <pre>
+$ git clone https://github.com/jasonxmansour/AI-TCP-Game-Room
+$ make build
+$ ./server --port 8080
+$ ./client --connect 127.0.0.1:8080</pre>
+            </section>
+            
+            <section>
+                <h2>05. Download</h2>
+                <p>
+                    Access the source code or documentation:
+                    <br><br>
+                    <a href="https://github.com/jasonxmansour/AI-TCP-Game-Room">[ SOURCE_CODE ]</a> &nbsp; 
+                </p>
+            </section>
+        </main>
+
+        <footer>
+            <div class="status-bar">
+                <span>STATUS: ONLINE</span>
+                <span>MEM: 64KB OK</span>
+                <span>Last Updated: 2025</span>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
